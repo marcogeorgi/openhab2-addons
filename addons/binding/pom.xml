@@ -150,6 +150,7 @@
     <module>org.openhab.binding.russound</module>
     <module>org.openhab.binding.samsungtv</module>
     <module>org.openhab.binding.satel</module>
+    <module>org.openhab.binding.selfsatip</module>
     <module>org.openhab.binding.seneye</module>
     <module>org.openhab.binding.sensebox</module>
     <module>org.openhab.binding.serialbutton</module>
