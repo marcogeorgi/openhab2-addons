@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config-description:config-descriptions
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:config-description="https://openhab.org/schemas/config-description/v1.0.0"
+		xsi:schemaLocation="https://openhab.org/schemas/config-description/v1.0.0
+		https://openhab.org/schemas/config-description-1.0.0.xsd">
+	<config-description uri="thing-type:selfsatip:antenna">
+
+		<parameter-group name="antenna">
+			<label>SELFSAT-IP Antenna</label>
+			<description>Configuration of the SELFSAT-IP antenna</description>
+		</parameter-group>
+
+		<parameter-group name="stationmapper">
+			<label>Station Mapping (optional)</label>
+			<description>Station mapping is used to resolve tuner information and translate them into user friendly TV
+				station names
+			</description>
+		</parameter-group>
+
+		<parameter name="host" type="text" required="true" groupName="antenna">
+			<label>Host Address</label>
+			<description>The IP address or the domain name of the SELFSAT-IP antenna</description>
+			<context>network-address</context>
+		</parameter>
+
+		<parameter name="user" type="text" required="true" groupName="antenna">
+			<label>User Name</label>
+		</parameter>
+
+		<parameter name="password" type="text" required="false" groupName="antenna">
+			<label>Password</label>
+			<context>password</context>
+		</parameter>
+
+		<parameter name="refresh" type="integer" min="1" unit="s" required="true" groupName="antenna">
+			<label>Refresh Interval</label>
+			<description>The interval to refresh antenna information (in seconds)</description>
+			<default>60</default>
+		</parameter>
+
+		<parameter name="playlistAddress" type="text" required="false" groupName="stationmapper">
+			<label>Playlist</label>
+			<description>A extended M3U playlist that contains the streams that are provided by this antenna
+			</description>
+			<context>url</context>
+		</parameter>
+
+		<parameter name="playlistRefresh" type="integer" min="1" unit="h" required="false" groupName="stationmapper">
+			<label>Refresh Interval</label>
+			<description>The interval to refresh the playlist (in hours)</description>
+			<default>24</default>
+		</parameter>
+
+	</config-description>
+
+</config-description:config-descriptions>

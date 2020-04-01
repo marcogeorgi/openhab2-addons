@@ -154,6 +154,7 @@
 /bundles/org.openhab.binding.russound/ @tmrobert8
 /bundles/org.openhab.binding.samsungtv/ @paulianttila
 /bundles/org.openhab.binding.satel/ @druciak
+/bundles/org.openhab.binding.selfsatip/ @marcogeorgi
 /bundles/org.openhab.binding.seneye/ @nikotanghe
 /bundles/org.openhab.binding.sensebox/ @hakan42
 /bundles/org.openhab.binding.serialbutton/ @kaikreuzer

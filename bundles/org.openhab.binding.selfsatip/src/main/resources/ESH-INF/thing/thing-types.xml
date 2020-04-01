@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="selfsatip"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+						xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<!-- SELFSAT-IP antenna thing -->
+	<thing-type id="antenna">
+
+		<label>SELFSAT-IP Antenna</label>
+		<description>
+			This Thing represents a SELFSAT-IP antenna and its built in SAT>IP server.
+			It provides access to status information about the antenna as well as
+			currently streamed channels.
+		</description>
+		<category>Screen</category>
+
+		<channel-groups>
+
+			<channel-group id="generalInfo" typeId="generalInfoType"/>
+
+			<channel-group id="tuner1" typeId="tunerType">
+				<label>Tuner 1</label>
+			</channel-group>
+			<channel-group id="tuner2" typeId="tunerType">
+				<label>Tuner 2</label>
+			</channel-group>
+			<channel-group id="tuner3" typeId="tunerType">
+				<label>Tuner 3</label>
+			</channel-group>
+			<channel-group id="tuner4" typeId="tunerType">
+				<label>Tuner 4</label>
+			</channel-group>
+			<channel-group id="tuner5" typeId="tunerType">
+				<label>Tuner 5</label>
+			</channel-group>
+			<channel-group id="tuner6" typeId="tunerType">
+				<label>Tuner 6</label>
+			</channel-group>
+			<channel-group id="tuner7" typeId="tunerType">
+				<label>Tuner 7</label>
+			</channel-group>
+			<channel-group id="tuner8" typeId="tunerType">
+				<label>Tuner 8</label>
+			</channel-group>
+
+		</channel-groups>
+
+		<properties>
+
+			<property name="vendor">SELFSAT</property>
+			<property name="modelId">SELFSAT-IP21</property>
+
+			<property name="deviceId"/>
+			<property name="deviceName"/>
+			<property name="firmwareVersion"/>
+			<property name="hardwareVersion"/>
+			<property name="gmiFirmwareVersion"/>
+			<property name="gmiHardwareVersion"/>
+			<property name="frontends"/>
+			<property name="sessionTimeout"/>
+
+		</properties>
+
+		<representation-property>macAddress</representation-property>
+
+		<config-description-ref uri="thing-type:selfsatip:antenna"/>
+
+	</thing-type>
+
+	<channel-group-type id="generalInfoType">
+		<label>General Information</label>
+		<description>General antenna device information</description>
+		<channels>
+			<channel id="status" typeId="statusType"/>
+			<channel id="uptime" typeId="uptimeTimeType"/>
+			<channel id="cpuLoad" typeId="cpuLoadType"/>
+			<channel id="memoryUtilization" typeId="memoryUtilizationType"/>
+			<channel id="noOfClients" typeId="noOfClientsType"/>
+			<channel id="minSignalQuality" typeId="minSignalQualityType"/>
+			<channel id="maxSignalQuality" typeId="maxSignalQualityType"/>
+			<channel id="minSignalLevel" typeId="minSignalLevelType"/>
+			<channel id="maxSignalLevel" typeId="maxSignalLevelType"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="tunerType">
+		<label>Tuner</label>
+		<description>Tuner information</description>
+		<channels>
+			<channel id="name" typeId="nameType"/>
+			<channel id="tunerType" typeId="tunerTypeType"/>
+			<channel id="mode" typeId="modeType"/>
+			<channel id="ipAddress" typeId="ipAddressType"/>
+			<channel id="ipAddressResolved" typeId="ipAddressResolvedType"/>
+			<channel id="playing" typeId="playingType"/>
+			<channel id="lock" typeId="lockType"/>
+			<channel id="signalQuality" typeId="signalQualityType"/>
+			<channel id="signalQualityNorm" typeId="signalQualityNormType"/>
+			<channel id="signalLevel" typeId="signalLevelType"/>
+			<channel id="signalLevelNorm" typeId="signalLevelNormType"/>
+			<channel id="frequency" typeId="frequencyType"/>
+			<channel id="symbolRate" typeId="symbolRateType"/>
+			<channel id="polarisation" typeId="polarisationType"/>
+			<channel id="receptionType" typeId="receptionTypeType"/>
+			<channel id="modulation" typeId="modulationType"/>
+			<channel id="pids" typeId="pidsType"/>
+			<channel id="station" typeId="stationType"/>
+			<channel id="tvgId" typeId="tvgIdType"/>
+			<channel id="logo" typeId="logoType"/>
+			<channel id="logoUrl" typeId="logoUrlType"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-type id="statusType">
+		<item-type>String</item-type>
+		<label>Status</label>
+		<description>Antenna Status</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="uptimeTimeType">
+		<item-type>String</item-type>
+		<label>Uptime</label>
+		<description>Uptime of the antenna</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="cpuLoadType">
+		<item-type>Number</item-type>
+		<label>CPU Load</label>
+		<description>Current CPU utilization of the antennas SAT>IP server</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="memoryUtilizationType">
+		<item-type>Number</item-type>
+		<label>Memory Utilization</label>
+		<description>Current memory consumption of the antennas SAT>IP server</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="noOfClientsType">
+		<item-type>Number</item-type>
+		<label>Number of Clients</label>
+		<description>Number of currently connected clients</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="minSignalQualityType">
+		<item-type>Number</item-type>
+		<label>Minimum Signal Quality</label>
+		<description>Minimum signal quality of all active tuners</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="maxSignalQualityType">
+		<item-type>Number</item-type>
+		<label>Maximum Signal Quality</label>
+		<description>Maximum signal quality of all active tuners</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="minSignalLevelType">
+		<item-type>Number</item-type>
+		<label>Minimum Signal Level</label>
+		<description>Minimum signal level of all active tuners</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="maxSignalLevelType">
+		<item-type>Number</item-type>
+		<label>Maximum Signal Level</label>
+		<description>Maximum signal level of all active tuners</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="nameType">
+		<item-type>String</item-type>
+		<label>Tuner Name</label>
+		<description>Name/Number of the tuner</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="tunerTypeType">
+		<item-type>String</item-type>
+		<label>Tuner Type</label>
+		<description>Type of the tuner</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="modeType">
+		<item-type>String</item-type>
+		<label>Tuner Mode</label>
+		<description>Mode of the tuner</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="ipAddressType">
+		<item-type>String</item-type>
+		<label>Client IP</label>
+		<description>IP address of the streaming client device</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="ipAddressResolvedType">
+		<item-type>String</item-type>
+		<label>Client Host Name</label>
+		<description>Resolved domain name of the streaming client device</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="playingType">
+		<item-type>Switch</item-type>
+		<label>Playing</label>
+		<description>Currently playing flag</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="lockType">
+		<item-type>Switch</item-type>
+		<label>Lock Status</label>
+		<description>Currently locked flag</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="signalQualityType">
+		<item-type>Number</item-type>
+		<label>Signal Quality (untranslated)</label>
+		<description>Signal quality, a raw untranslated value</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="signalQualityNormType">
+		<item-type>Number</item-type>
+		<label>Normalized Signal Quality</label>
+		<description>Signal quality in percent</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="signalLevelType">
+		<item-type>Number</item-type>
+		<label>Signal Level (untranslated)</label>
+		<description>Signal level, a raw untranslated value</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="signalLevelNormType">
+		<item-type>Number</item-type>
+		<label>Normalized Signal Level</label>
+		<description>Signal level in dBm</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="frequencyType">
+		<item-type>Number</item-type>
+		<label>Frequency</label>
+		<description>Frequency of the tuned TV station</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="symbolRateType">
+		<item-type>Number</item-type>
+		<label>Symbol Rate</label>
+		<description>Symbol rate of the tuned TV station</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="polarisationType">
+		<item-type>String</item-type>
+		<label>Polarization</label>
+		<description>Polarization of the tuned TV station</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="receptionTypeType">
+		<item-type>String</item-type>
+		<label>Reception Type</label>
+		<description>Reception type of the tuned TV station</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="modulationType">
+		<item-type>String</item-type>
+		<label>Modulation</label>
+		<description>Modulation of the tuned TV station</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="pidsType">
+		<item-type>String</item-type>
+		<label>List of PIDs</label>
+		<description>List of PIDs of the tuned TV station</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="stationType">
+		<item-type>String</item-type>
+		<label>Station Name</label>
+		<description>Note: The TV Station name is only available if the station mapping is configured for the antenna
+			Thing.
+		</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="tvgIdType">
+		<item-type>String</item-type>
+		<label>TV Guide ID</label>
+		<description>Note: The TV Guide ID is only available if the station mapping is configured for the antenna
+			Thing.
+		</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="logoType">
+		<item-type>String</item-type>
+		<label>TV Station Image</label>
+		<description>Note: The TV Station Image is only available if the station mapping is configured for the antenna
+			Thing.
+		</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="logoUrlType">
+		<item-type>String</item-type>
+		<label>TV Station Image URL</label>
+		<description>Note: The TV Station Image URL is only available if the station mapping is configured for the
+			antenna Thing.
+		</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+</thing:thing-descriptions>
